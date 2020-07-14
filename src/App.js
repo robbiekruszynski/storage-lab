@@ -9,47 +9,45 @@ const contractAddress = "0xe5480ed2FF30255A06C2b036a19F9004121b7630";
 const simpleContract = new web3.eth.Contract(simpleStorage, contractAddress);
 
 function App() {
-  const [number, setNumber] = useState(0);
-  const [getNumber, setGetNumber] = useState("0");
+  const [number, setUint] = useState(0);
+  const [getNumber, setGet] = useState("0");
 
-  const handleSet = async (t) => {
+  const numberSet = async (t) => {
     t.preventDefault();
     const accounts = await window.ethereum.enable();
     const account = accounts[0];
     const gas = await simpleContract.methods.set(number).estimateGas();
-    const result = await simpleContract.methods.set(number).send({
+    const post = await simpleContract.methods.set(number).send({
       from: account,
       gas,
     });
-    console.log(result);
   };
 
-  const handleGet = async (e) => {
-    e.preventDefault();
-    const result = await simpleContract.methods.get().call();
-    setGetNumber(result);
-    console.log(result);
+  const numberGet = async (t) => {
+    t.preventDefault();
+    const post = await simpleContract.methods.get().call();
+    setGet(post);
   };
 
   return (
     <div className="main">
       <div className="card">
-        <form className="form" onSubmit={handleSet}>
+        <form className="form" onSubmit={numberSet}>
           <label>
             Set your uint256:
             <input
               className="input"
               type="text"
               name="name"
-              onChange={(e) => setNumber(e.target.value)}
+              onChange={(t) => setUint(t.target.value)}
             />
           </label>
           <button className="button" type="submit" value="Confirm">
-            Set your uint256
+            Confirm
           </button>
         </form>
         <br />
-        <button className="button" onClick={handleGet} type="button">
+        <button className="button" onClick={numberGet} type="button">
           Get your uint256
         </button>
         {getNumber}
