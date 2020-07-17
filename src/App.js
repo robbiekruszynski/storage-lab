@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { simpleStorage } from "./abi/abi";
 import Web3 from "web3";
-import Nav from "./Nav.js";
+import Nav from "./components/Nav.js";
 import "./App.css";
 
 const web3 = new Web3(Web3.givenProvider);
