@@ -5,6 +5,7 @@ import Nav from "./components/Nav.js";
 import "./App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,16 +48,13 @@ function App() {
         {/* <Nav /> */}
 
         <div className="card">
+          <TextField
+            id="outlined-basic"
+            label="Set your uint256:"
+            onChange={(t) => setUint(t.target.value)}
+            variant="outlined"
+          />
           <form className="form" onSubmit={numberSet}>
-            <label>
-              Set your uint256:
-              <input
-                className="input"
-                type="text"
-                name="name"
-                onChange={(t) => setUint(t.target.value)}
-              />
-            </label>
             <Button
               variant="contained"
               color="primary"
@@ -75,6 +73,7 @@ function App() {
             >
               Get your uint256
             </Button>
+
             {getNumber}
           </form>
         </div>
