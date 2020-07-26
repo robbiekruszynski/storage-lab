@@ -44,9 +44,8 @@ function App() {
 
   return (
     <div className={classes.root}>
+      <Nav />
       <div className="main">
-        {/* <Nav /> */}
-
         <div className="card">
           <TextField
             id="outlined-basic"
