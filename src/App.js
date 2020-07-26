@@ -3,6 +3,8 @@ import { simpleStorage } from "./abi/abi";
 import Web3 from "web3";
 import Nav from "./components/Nav.js";
 import "./App.css";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const web3 = new Web3(Web3.givenProvider);
 
@@ -32,7 +34,7 @@ function App() {
 
   return (
     <div className="main">
-      <Nav />
+      {/* <Nav /> */}
 
       <div className="card">
         <form className="form" onSubmit={numberSet}>
