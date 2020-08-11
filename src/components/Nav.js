@@ -1,6 +1,6 @@
 import React from "react";
 import Web3 from "web3";
-
+import "./Nav.css";
 class Nav extends React.Component {
   state = { account: "" };
 
